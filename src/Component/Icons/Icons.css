@@ -1,0 +1,16 @@
+.Icons_card{
+    width: 45%;
+    background-color: white;
+    height: 7vh;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.Icons_container{
+    display: flex;
+}
+
+.Icons_card h2{
+    margin-top: 10px;
+}
