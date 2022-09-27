@@ -1,16 +1,23 @@
 import React from 'react'
 import './Icons.css'
+import { NavLink } from 'react-router-dom'
 
 function Icons() {
     return (
         <>
             <div className='Icons_container'>
                 <div className='Icons_card'>
-                    <h2>Products</h2>
+                    <NavLink to="/">
+                        <h2>Product</h2>
+                    </NavLink>
                 </div>
                 <div className='Icons_card'>
-                    <h2>Cart</h2>
+                    <NavLink  to="/cart">
+                        <h2>Cart</h2>
+                    </NavLink>
+
                 </div>
+
             </div>
         </>
     )

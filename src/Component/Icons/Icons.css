@@ -5,12 +5,19 @@
     margin: 0 auto;
     border-radius: 10px;
     text-align: center;
+    text-decoration: none;
 }
 
 .Icons_container{
     display: flex;
+    
 }
 
 .Icons_card h2{
     margin-top: 10px;
+    text-decoration: none;
+}
+
+.active{
+    text-decoration: none;
 }

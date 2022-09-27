@@ -21,3 +21,8 @@
     margin: auto 0.30rem;
     text-align: center;
 }
+
+.loading{
+    color: white;
+    margin: 10rem 40rem;
+}
