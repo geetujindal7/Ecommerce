@@ -1,11 +1,12 @@
-// import {configureStore} from 'react-redux'
-// import { combineReducers } from 'redux'
+import { combineReducers } from 'redux'
+import { reducers } from './reducer'
+import {configureStore} from '@reduxjs/toolkit'
 
 
-// const reduc = combineReducers({
+const reducer = combineReducers({
+reducers
+})
 
-// })
-
-// const store = configureStore({
-//         reduc
-// })
+export const store = configureStore({
+        reducer
+})

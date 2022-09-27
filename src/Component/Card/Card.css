@@ -5,10 +5,9 @@
     background-color: white;
     height: 70vh;
     margin: 1rem;
-    width: 30vw;
+    width: 25vw;
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     min-width: 30vw;
 }
