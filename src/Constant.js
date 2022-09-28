@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 export const images = [
     {
         image: 'https://img.freepik.com/free-photo/black-friday-elements-assortment_23-2149074075.jpg?w=2000'
@@ -21,3 +23,12 @@ export const images = [
         image: 'https://media.istockphoto.com/photos/eclectic-living-room-interior-with-comfortable-velvet-corner-sofa-picture-id1190440285?k=20&m=1190440285&s=612x612&w=0&h=8e8k0hwB200m1hztqq2ddEQTK9ftGcnLWCbktefeSRI='
     },
 ]
+
+export const context = createContext(
+    {
+      addItem: (item) => {},
+      items: [],
+      removeItem: (id) => {},
+      totalAmount: 0
+    }
+  );

@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
+import { context } from "../../Constant";
 import Card from "../Card/Card";
+import './EachProduct.css'
 
 function EachProduct() {
   const selct = useSelector((state) => state.reducers.state);
-  console.log(selct);
 
+  const value = useContext(context)
+
+  // const handleCard = (e) => {
+    
+  // }
+
+  const handleAdd = (e) => {
+    value.addItem((e))
+  }
   return (
     <>
-      <div style={{ display: "flex", flexWrap: "wrap", marginTop: "5%" }}>
+      <div  style={{ display: "flex", flexWrap: "wrap", marginTop: "5%" }}>
         {selct ? (
           selct.map((e) => {
             return (
-              <Card>
+              <Card >
                 <div style={{ marginBottom: "30px" }}>
                   <img className="product_image" src={e.images[0]} alt="" />
                 </div>
@@ -20,10 +30,11 @@ function EachProduct() {
                   <span>{e.brand}</span>
                   <span>${e.price}</span>
                 </div>
-              <div>
-              <button className="">+</button>
+              <div className="actions">
+              <button onClick={() => handleAdd(e)}>+</button>
                 <button>-</button>
               </div>
+             
               </Card>
             );
           })

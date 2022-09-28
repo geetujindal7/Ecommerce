@@ -1,0 +1,15 @@
+.actions{
+    margin: 20px 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.actions button{
+    width: 5rem;
+    background-color: rgb(230, 85, 85);
+    height: 2rem;
+    border-radius: 5px;
+    border-color: rgb(230, 85, 85);;
+    margin-left: 10px;
+}
+

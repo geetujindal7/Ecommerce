@@ -19,7 +19,7 @@ function Items({ allData, images }) {
         {images.map((e, key) => {
           return (
             <div className="item_container" key = {key}>
-             <NavLink to={"/detail"} onClick={() => handleItems(key)}> <img className="image_container"  src={e.image} alt="" /></NavLink>
+             <NavLink to={"/products"} onClick={() => handleItems(key)}> <img className="image_container"  src={e.image} alt="" /></NavLink>
               <div className="image_title">{catogoriesSet[key]}</div>
             </div>
           );
