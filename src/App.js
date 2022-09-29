@@ -19,7 +19,22 @@ const reducer = (state, action) => {
   {
     return {
       ...state,
-      items: [action.item],
+      items: [...state.items, action.item],
+      quantity: state.items.length+ 1,
+      amount: state.amount + action.item.price
+    }
+  }
+  else if(action.type === "Remove")
+  {
+    const updatedRemovedItems = state.items.filter((e) => e.id !== action.id)
+    const amountUpdation = state.items.filter((e) => e.id === action.id)
+    console.log(amountUpdation)
+    console.log(updatedRemovedItems)
+    return {
+      ...state,
+      items: updatedRemovedItems,
+      quantity: state.items.length - 1,
+      amount: state.amount  - amountUpdation[0].price
     }
   }
   return state
@@ -27,16 +42,14 @@ const reducer = (state, action) => {
 
 function App() {
 
-
   const [data, dispatch] = useReducer(reducer, initialState)
-
   const value = {
     addItem: (item) => {
       dispatch({type: "Add", item: item})
     },
     items: data.items,
     removeItem: (id) => {
-      
+      dispatch({type:"Remove", id: id})
     },
     totalAmount: data.amount,
     quantity: data.quantity

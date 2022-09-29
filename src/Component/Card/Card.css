@@ -3,7 +3,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     border-radius: 14px;
     background-color: white;
-    height: 70vh;
+    min-height: 70vh;
     margin: 1rem;
     width: 25vw;
     display: flex;
@@ -19,8 +19,7 @@
     border-radius: 14px;
     background-color: white;
     min-width: 90vw;
-    width: 90vw;
-    height: 80vh;
+    min-height: 80vh;
    }
   }
 
