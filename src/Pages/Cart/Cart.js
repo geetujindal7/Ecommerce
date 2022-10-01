@@ -1,20 +1,23 @@
 import React, { useContext } from "react";
-import { useDispatch } from "react-redux";
-import Card from "../../Component/Card/Card";
 import { context } from "../../Constant";
 import "./Cart.css";
 
+
 function Cart() {
   
-  
   const value = useContext(context);
+  console.log(value)
 
   const handleRemove = (e) => {
     value.removeItem(e)
   }
   return (
+    <>
+    <div>
+
+    </div>
     <div className="cart_container">
-      {}
+      
       <div>
         <ul>
           {value.items.map((e, key) => (
@@ -29,7 +32,7 @@ function Cart() {
                   <h4>${e.price}</h4>
                 </div>
                 <div className="action_cart">
-                  <button>+</button>
+                  <button onClick={() => value.addItem(e)}>+</button>
                   <button onClick={() => handleRemove(e.id)}>-</button>
                 </div>
               </li>
@@ -43,6 +46,7 @@ function Cart() {
         <h3>${value.totalAmount}</h3>
       </div>
     </div>
+    </>
   );
 }
 

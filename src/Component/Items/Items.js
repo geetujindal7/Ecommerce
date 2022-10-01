@@ -4,17 +4,19 @@ import { NavLink } from "react-router-dom";
 import "./Items.css";
 
 function Items({ allData, images }) {
+
+   
   const categories = allData.map((e) => e.category);
   const catogoriesSet = ["All", ...new Set(categories)];
 
   const dispatch = useDispatch();
   const handleItems = (e) => {
    dispatch({type: "FILTERED", data: allData, clicked: catogoriesSet[e]})
-   
   }
 
   return (
     <>
+    
       <div style={{ display: "flex", flexWrap: "wrap", marginTop: "5%" }}>
         {images.map((e, key) => {
           return (

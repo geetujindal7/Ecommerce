@@ -1,0 +1,130 @@
+
+
+.product_images{
+    width: 100%;
+    height: 100%;
+    margin: 50px 30px;
+    border-radius: 10px;
+}
+
+ .previousIcon{
+    height: 50px;
+    width: 30px;
+   margin: 300px 20px;
+}
+
+.nexticon{
+    height: 50px;
+    width: 30px;
+    margin: 300px 20px;
+
+} 
+.Container_items{
+    display: flex;
+}
+
+.details_items{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin: 90px 280px;
+}
+
+.values_title{
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.desc_values{
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.card_rating_disc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    margin-top: 50px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+.addButton{
+    margin: 70px;
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+.addButton:hover{
+    background-color: white;
+    color: black;
+}
+
+.image_container_b{
+   
+    height: 70vh;
+    display: flex;
+}
+
+.price_items{
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 450px) {
+   
+    .image_container_b{
+        width: 100%;
+        height: 70vh;
+        display: flex;
+    }
+
+    .Container_items{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product_images{
+        width: 55%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+     .previousIcon{
+        height: 50px;
+        width: 30px;
+       margin-top: 300px ;
+    }
+    
+    .nexticon{
+        height: 50px;
+        width: 30px;
+        margin-top: 300px ;
+    
+    } 
+    .details_items{
+        display: flex;
+        flex-direction: column;
+        color: white;  
+        margin: 90px ;
+    }
+
+    .addButton{
+        margin: 70px auto;
+        width: 200px;
+        height: 50px;
+        background-color: transparent;
+        color: white;
+        border-radius: 5px;
+        border: 1px solid white;
+    }
+    
+    
+    }
+    
+    

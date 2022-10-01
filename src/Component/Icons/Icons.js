@@ -7,12 +7,12 @@ function Icons() {
         <>
             <div className='Icons_container'>
                 <div className='Icons_card'>
-                    <NavLink to="/">
+                    <NavLink to="/" style={{textDecoration: 'none'}} >
                         <h2>Product</h2>
                     </NavLink>
                 </div>
                 <div className='Icons_card'>
-                    <NavLink  to="/cart">
+                    <NavLink  to="/cart" style={{textDecoration: 'none', color:"black"}} >
                         <h2>Cart</h2>
                     </NavLink>
 

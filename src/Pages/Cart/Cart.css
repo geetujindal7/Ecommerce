@@ -31,12 +31,13 @@
 
 .Cart_values {
   display: flex;
+  max-height: 150px;
 }
 
 .Cart_values h4 {
   margin-top: 20px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
   margin-right: 10px;
 }
@@ -53,7 +54,7 @@
 .action_cart {
   display: flex;
   justify-content: flex-end;
-  margin: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 .action_cart button {
@@ -86,4 +87,15 @@
     max-width: 200px;
     max-height: 70px;
   }
+
+  .action_cart {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10rem;
+  }
+
+  .list_cart{
+      height: 300px;
+  }
+  
 }

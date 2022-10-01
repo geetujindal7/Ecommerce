@@ -13,3 +13,32 @@
     margin-left: 10px;
 }
 
+.dropdown_sort{
+    margin: 2rem 1rem 0.50rem 2rem;
+    width: 20%;
+}
+
+.action_button:hover {
+    background-color: rgb(241, 238, 238);
+    border-color: rgb(241, 238, 238);;
+}
+
+.discountPercentage{
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(113, 82, 24);
+}
+.rating{
+    text-align: center;
+    color: rgb(113, 82, 24);;
+}
+
+
+@media screen and (max-width: 450px) {
+    
+.dropdown_sort{
+    margin: 2rem 1rem 0.50rem 2rem;
+    width: 50%;
+}
+}
+
