@@ -6,12 +6,16 @@ import "./Cart.css";
 function Cart() {
   
   const value = useContext(context);
-  console.log(value)
 
   const handleRemove = (e) => {
     value.removeItem(e)
   }
-  return (
+
+  console.log(value.items)
+  // const a = value.stock.findIndex((e) => e!==0)
+  // const aa = a+ 1;
+
+    return (
     <>
     <div>
 
@@ -28,8 +32,10 @@ function Cart() {
                   <div>
                     <h3 className="title">{e.title}</h3>
                     <p className="description">{e.description}</p>
+                      <h3 className="quantity_item">Quantity: {e.quan}</h3>
                   </div>
                   <h4>${e.price}</h4>
+                 
                 </div>
                 <div className="action_cart">
                   <button onClick={() => value.addItem(e)}>+</button>

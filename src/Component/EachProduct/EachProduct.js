@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { context } from "../../Constant";
 import Card from "../Card/Card";
 import "./EachProduct.css";
@@ -48,7 +48,6 @@ function EachProduct() {
     value.addItem(e);
   };
 
-
   return (
     <>
       <Select
@@ -65,35 +64,36 @@ function EachProduct() {
               <Card>
                 <div>
                   <Link
-                    to="/products/item"
-                      state={{ value: e }}
-                      style={{textDecoration: 'none'}} 
+                    to={{
+                      pathname: `/products/${e.brand}`,
+                    }}
+                    state={{ value: e }}
+                    style={{ textDecoration: "none" }}
                   >
                     <div style={{ marginBottom: "30px" }}>
                       <img className="product_image" src={e.images[0]} alt="" />
                     </div>
-                    </Link>
-                    <div className="rating">
-                      <Rating ratingValue={e.rating * 20} />
-                      {e.rating}/5
-                    </div>
-                    <div className="data_price">
-                      <span>{e.brand}</span>
-                      <span>${e.price}</span>
-                    </div>
-                    <div className="discountPercentage">
-                      ({e.discountPercentage}% discount)
-                    </div>
-                    <div className="actions">
-                      <button
-                        className="action_button"
-                        onClick={() => handleAdd(e)}
-                      >
-                        +
-                      </button>
-                      <button className="action_button">-</button>
-                    </div>
-                 
+                  </Link>
+                  <div className="rating">
+                    <Rating ratingValue={e.rating * 20} />
+                    {e.rating}/5
+                  </div>
+                  <div className="data_price">
+                    <span>{e.brand}</span>
+                    <span>${e.price}</span>
+                  </div>
+                  <div className="discountPercentage">
+                    ({e.discountPercentage}% discount)
+                  </div>
+                  <div className="actions">
+                    <button
+                      className="action_button"
+                      onClick={() => handleAdd(e)}
+                    >
+                      +
+                    </button>
+                    <button className="action_button">-</button>
+                  </div>
                 </div>
               </Card>
             );

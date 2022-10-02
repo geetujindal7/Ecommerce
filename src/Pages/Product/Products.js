@@ -11,11 +11,16 @@ function Products() {
   useEffect(() => {
     setLoading(true);
     axios.get(`https://dummyjson.com/products`).then((data) => {
-      setData(data.data.products);
+      const arrWithColor = data.data.products.map(object => {
+        return {...object, quan: 1};
+      });
+      setData(arrWithColor)
       setLoading(false);
     });
+   
   }, []);
 
+  console.log(data)
   return (
     <>
       {loading ? (

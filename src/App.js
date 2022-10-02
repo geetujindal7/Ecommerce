@@ -5,15 +5,16 @@ import Products from './Pages/Product/Products';
 import Cart from './Pages/Cart/Cart';
 import EachProduct from './Component/EachProduct/EachProduct';
 import {context} from './Constant'
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import ItemProduct from './Component/ItemProduct/ItemProduct';
 
 
 const initialState = {
-  items: [],
-  amount: 0,
-  quantity: 0,
+  items: JSON.parse(localStorage.getItem("items")) == null ? [] : JSON.parse(localStorage.getItem("items")), 
+  amount: Number(localStorage.getItem("amount")) == null ? 0 : Number(localStorage.getItem("amount")),
+  quantity: Number(localStorage.getItem("quantity")) == null ? 0 : Number(localStorage.getItem("quantity")),
 }
+
 
 const reducer = (state, action) => {
 
@@ -21,16 +22,23 @@ const reducer = (state, action) => {
   if(action.type === "Add")
   {
     const present = state.items?.findIndex((e) => e.id === action.item.id)
-   
-
+    const existingCart = state.items[present]
+    let items;
     if(present !== -1)
     {
+      //state.items[present].quan = state.items[present].quan + 1
+      let updatedItems = {
+        ...existingCart,
+        quan: existingCart.quan+ 1,
+      }
+      items = [...state.items];
+      items[present] = updatedItems
       return {
         ...state,
-      items: [...state.items],
+      items: items,
       quantity: state.quantity + 1,
       amount: state.amount + action.item.price,
-    
+       
     }
   }
 
@@ -47,6 +55,43 @@ const reducer = (state, action) => {
   {
     const updatedRemovedItems = state.items.filter((e) => e.id !== action.id)
     const amountUpdation = state.items.filter((e) => e.id === action.id)
+
+   
+    const present = state.items?.findIndex((e) => e.id === action.id)
+    const existingCart = state.items[present]
+
+    let updatedItems;
+
+   if(existingCart)
+   {
+    let updatedItem = {
+       ...existingCart,
+       quan: existingCart.quan - 1,
+     }
+
+     updatedItems = [...state.items]
+     updatedItems[present] = updatedItem
+
+     if(existingCart.quan<= 1)
+     {
+       let upd = state.items.filter((e) => e.id !== action.id)
+       console.log(upd)
+      return {
+        ...state,
+        items: upd,
+       quantity: state.quantity - 1,
+      amount: state.amount  - amountUpdation[0].price
+      }
+     }
+
+     return{
+       ...state,
+       items: updatedItems,
+       quantity: state.quantity - 1,
+      amount: state.amount  - amountUpdation[0].price
+     }
+   }
+
     return {
       ...state,
       items: updatedRemovedItems,
@@ -57,6 +102,19 @@ const reducer = (state, action) => {
   return state
 }
 
+
+// const getLocalItems = () => {
+  
+//   let list = localStorage.getItem('data')
+//     console.log(list)
+
+//     if(list) {
+//       return JSON.parse(localStorage.getItem('data'))
+//     }
+//     else {
+//       return [];
+//     }
+// }
 function App() {
 
   const [data, dispatch] = useReducer(reducer, initialState)
@@ -73,6 +131,12 @@ function App() {
     stock: data.stock
   }
 
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(data.items));
+    localStorage.setItem('amount', JSON.stringify(data.amount));
+    localStorage.setItem('quantity', JSON.stringify(data.quantity));
+
+  }, [data]);
   return (
    <>
     <context.Provider value = {value}>
@@ -81,7 +145,7 @@ function App() {
         <Route path='/' element={<Products />}></Route>
         <Route path="cart" element={<Cart />}></Route>
         <Route path="products" element={<EachProduct />}></Route>
-        <Route exact path="products/item" element={<ItemProduct />}></Route>
+        <Route exact path="products/:id" element={<ItemProduct />}></Route>
       </Routes>
     </context.Provider>
     </>
