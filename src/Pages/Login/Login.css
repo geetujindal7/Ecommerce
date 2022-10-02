@@ -1,0 +1,29 @@
+.Login_container{
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    margin: 10rem auto;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.labelValues{
+    margin-bottom: 1rem;
+}
+
+.inputValues{
+    margin-bottom: 1rem;
+    padding: 0.25rem;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.button_submit{
+    padding: 0.25rem;
+    background-color: crimson;
+    border: 1px solid transparent;
+    color: white;
+    width: 10%;
+    margin-top: 30px;
+    border-radius: 5px;
+}
