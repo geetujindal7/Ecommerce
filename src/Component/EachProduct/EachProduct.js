@@ -35,6 +35,7 @@ function EachProduct() {
       const sorted = [...data].sort((a, b) => b.rating - a.rating);
       setData(sorted);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
   const options = [

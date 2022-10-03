@@ -6,3 +6,10 @@
     padding: 2rem;
     border-radius: 15px;
 }
+
+.submitted{
+    margin: 10rem auto;
+    width: 30%;
+    font-size: 20px;
+    color: white;
+}

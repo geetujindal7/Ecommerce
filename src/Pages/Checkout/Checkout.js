@@ -6,7 +6,6 @@ import '../Login/Login.css'
 
 function Checkout() {
 
-    const [data, setData] = useState({})
 const [submitting, setSubmitting] = useState(false)
 
     const name = useRef()
@@ -57,7 +56,7 @@ contex.clearItem();
 
   return (
   <>
-   {submitting ? <p>Submitted</p> : ( <div className='container_checkout'>
+   {submitting ? <p className='submitted'>Your Order has been Submitted!! Please wait for your order to be dispatched.</p> : ( <div className='container_checkout'>
         <form onSubmit={handleSubmit}>
         <div className='labelValues'>
     <label  htmlFor='username'>
