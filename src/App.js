@@ -8,6 +8,7 @@ import { context } from "./Constant";
 import { useEffect, useReducer, useState } from "react";
 import ItemProduct from "./Component/ItemProduct/ItemProduct";
 import Login from "./Pages/Login/Login";
+import Checkout from "./Pages/Checkout/Checkout";
 
 const initialState = {
   items:
@@ -95,21 +96,17 @@ const reducer = (state, action) => {
       amount: state.amount - amountUpdation[0].price,
     };
   }
+  else if(action.type === "Clear")
+  {
+    return {
+      items: [],
+      quantity: [],
+      amount: []
+    };
+  }
   return state;
 };
 
-// const getLocalItems = () => {
-
-//   let list = localStorage.getItem('data')
-//     console.log(list)
-
-//     if(list) {
-//       return JSON.parse(localStorage.getItem('data'))
-//     }
-//     else {
-//       return [];
-//     }
-// }
 function App() {
   const [data, dispatch] = useReducer(reducer, initialState);
   const [isLogin, setIsLogin] = useState(false);
@@ -120,6 +117,9 @@ function App() {
     items: data.items,
     removeItem: (id) => {
       dispatch({ type: "Remove", id: id });
+    },
+    clearItem: () => {
+      dispatch({type:"Clear"})
     },
     totalAmount: data.amount,
     quantity: data.quantity,
@@ -141,9 +141,11 @@ function App() {
     <Header />
       <Routes>
         <Route path='/' element={<Products />}></Route>
+        <Route  path ="/cart/checkout" exact element={<Checkout />}></Route>
         <Route path="cart" element={<Cart />}></Route>
         <Route path="products" element={<EachProduct />}></Route>
         <Route exact path="products/:id" element={<ItemProduct />}></Route>
+        
       </Routes>
     </context.Provider> ) :
     (<Routes >

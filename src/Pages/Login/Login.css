@@ -27,3 +27,21 @@
     margin-top: 30px;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 450px) {
+    .Login_container{
+        width: 90%;
+        height: 90%;
+      
+    }
+
+    .inputValues{
+        width: 90%;
+    }
+
+    .button_submit{
+        width: 30%;
+   }
+}
+ 
+  

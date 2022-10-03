@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { context } from "../../Constant";
 import "./Cart.css";
 
@@ -11,7 +12,6 @@ function Cart() {
     value.removeItem(e)
   }
 
-  console.log(value.items)
   // const a = value.stock.findIndex((e) => e!==0)
   // const aa = a+ 1;
 
@@ -48,9 +48,23 @@ function Cart() {
         </ul>
       </div>
       <div className="total_container">
-        <h3>Total Amount ({value.quantity} items)</h3>
-        <h3>${value.totalAmount}</h3>
+        <h3>Total Amount ({value.quantity ? value.quantity : 0} items)</h3>
+        <h3>${value.totalAmount ? value.totalAmount : 0}</h3>
       </div>
+    </div>
+   {/* <NavLink  to={{
+     pathname: "/cart/checkout"
+   }}
+   reloadDocument ={false}
+        state ={value} 
+        style={{textDecoration: "none"}}> */}
+        
+   <div className="checkout">
+   <Link
+                    to= "/cart/checkout"
+                    style={{ textDecoration: "none" }}>
+      <button className="buttonCheckout" onSubmit={(e) => e.preventDefault()}>Proceed to Checkout</button>
+      </Link>
     </div>
     </>
   );

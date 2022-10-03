@@ -74,6 +74,24 @@
   
 }
 
+.checkout{
+  display: flex;
+  margin: 1rem 5rem;
+  justify-content: flex-end;
+}
+
+.buttonCheckout{
+  width: 170px;
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.buttonCheckout:hover{
+  background-color: white;
+}
+
 @media screen and (max-width: 450px) {
   .cart_container {
     width: 90%;
@@ -97,7 +115,7 @@
   .action_cart {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 10rem;
+    margin-top: 5rem;
   }
 
   .list_cart{
