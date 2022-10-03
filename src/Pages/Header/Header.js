@@ -10,7 +10,6 @@ function Header() {
         <h2>SSS</h2>
         <div className='login_icons'>
           <h4>Home</h4>
-          <h4>Login</h4>
           <h4>Support</h4>
         </div>
       </div>
