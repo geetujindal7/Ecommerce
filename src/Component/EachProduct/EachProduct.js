@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { context } from "../../Constant";
 import Card from "../Card/Card";
 import "./EachProduct.css";
-import { Rating } from "react-simple-star-rating";
 import { Link } from "react-router-dom";
 
 function EachProduct() {
@@ -73,8 +72,8 @@ function EachProduct() {
                     </div>
                   </Link>
                   <div className="rating">
-                    <Rating ratingValue={e.rating * 20} />
-                    {e.rating}/5
+                    {/* <Rating ratingValue={e.rating * 20} /> */}
+                    {e.rating}/5 Rating
                   </div>
                   <div className="data_price">
                     <span>{e.brand}</span>
