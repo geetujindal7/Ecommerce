@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { context } from "../../Constant";
 import Card from "../Card/Card";
 import "./EachProduct.css";
-import Select from "react-select";
 import { Rating } from "react-simple-star-rating";
 import { Link } from "react-router-dom";
 
@@ -14,7 +13,7 @@ function EachProduct() {
   const [values, setValue] = useState("");
 
   const handleSort = (e) => {
-    setValue(e.value);
+    setValue(e.target.value);
   };
   useEffect(() => {
     if (values === "Price - low to high") {
@@ -38,12 +37,7 @@ function EachProduct() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values]);
 
-  const options = [
-    { value: "Price - high to low", label: "Price - high to low" },
-    { value: "Price - low to high", label: "Price - low to high" },
-    { value: "Discount", label: "Discount" },
-    { value: "Customer Rating", label: "Customer Rating" },
-  ];
+    
 
   const handleAdd = (e) => {
     value.addItem(e);
@@ -51,13 +45,16 @@ function EachProduct() {
 
   return (
     <>
-      <Select
-        value={options.value}
+      <select
         onChange={handleSort}
-        className="dropdown_sort"
-        options={options}
-        defaultValue="Sort"
-      />
+        className="dropdown_sort">
+           <option >Sort</option>  
+        <option value= "Price - high to low">Price - high to low</option>  
+        <option value= "Price - low to high"> Price - low to high  </option>
+        <option value= "Discount"> Discount </option>
+        <option value= "Customer Rating"> Customer Rating </option>
+  </select>
+      
       <div style={{ display: "flex", flexWrap: "wrap", marginTop: "5%" }}>
         {data ? (
           data.map((e) => {

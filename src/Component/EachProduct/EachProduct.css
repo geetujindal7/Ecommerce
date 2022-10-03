@@ -16,6 +16,7 @@
 .dropdown_sort{
     margin: 2rem 1rem 0.50rem 2rem;
     width: 20%;
+    height: 30px;
 }
 
 .action_button:hover {
