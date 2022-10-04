@@ -17,7 +17,7 @@ function Items({ allData, images }) {
   return (
     <>
     
-      <div style={{ display: "flex", flexWrap: "wrap", marginTop: "5%" }}>
+      <div style={{display: "flex", flexWrap: "wrap", marginTop: "5%" }}>
         {images.map((e, key) => {
           return (
             <div className="item_container" key = {key}>

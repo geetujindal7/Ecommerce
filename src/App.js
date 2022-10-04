@@ -95,13 +95,11 @@ const reducer = (state, action) => {
       quantity: state.quantity - 1,
       amount: state.amount - amountUpdation[0].price,
     };
-  }
-  else if(action.type === "Clear")
-  {
+  } else if (action.type === "Clear") {
     return {
       items: [],
       quantity: [],
-      amount: []
+      amount: [],
     };
   }
   return state;
@@ -109,7 +107,9 @@ const reducer = (state, action) => {
 
 function App() {
   const [data, dispatch] = useReducer(reducer, initialState);
-  const [isLogin, setIsLogin] = useState(false);
+  const [userName, setUsername] = useState("");
+  const [isLogin, setLogin] = useState(false);
+
   const value = {
     addItem: (item) => {
       dispatch({ type: "Add", item: item });
@@ -119,7 +119,7 @@ function App() {
       dispatch({ type: "Remove", id: id });
     },
     clearItem: () => {
-      dispatch({type:"Clear"})
+      dispatch({ type: "Clear" });
     },
     totalAmount: data.amount,
     quantity: data.quantity,
@@ -131,27 +131,34 @@ function App() {
     localStorage.setItem("amount", JSON.stringify(data.amount));
     localStorage.setItem("quantity", JSON.stringify(data.quantity));
   }, [data]);
+
+  const handleLogout = () => {
+    setLogin(false)
+  }
   return (
     <>
       {/* <Routes>
      <Route exact path = '/' element={<Login />}></Route>
      </Routes> */}
-     {isLogin ? 
-    ( <context.Provider value = {value}>
-    <Header />
-      <Routes>
-        <Route path='/' element={<Products />}></Route>
-        <Route  path ="/cart/checkout" exact element={<Checkout />}></Route>
-        <Route path="cart" element={<Cart />}></Route>
-        <Route path="products" element={<EachProduct />}></Route>
-        <Route exact path="products/:id" element={<ItemProduct />}></Route>
-        
-      </Routes>
-    </context.Provider> ) :
-    (<Routes >
-      <Route path='/' element={<Login setIsLogin={setIsLogin}/>} ></Route>
-    </Routes>) 
-     }
+      {isLogin ? (
+        <context.Provider value={value}>
+          <Header userName={userName} handleLogout={handleLogout} />
+          <Routes>
+            <Route path="/" element={<Products />}></Route>
+            <Route path="/cart/checkout" exact element={<Checkout />}></Route>
+            <Route path="cart" element={<Cart />}></Route>
+            <Route path="products" element={<EachProduct />}></Route>
+            <Route exact path="products/:id" element={<ItemProduct />}></Route>
+          </Routes>
+        </context.Provider>
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={<Login setUsername={setUsername} setLogin={setLogin} />}
+          ></Route>
+        </Routes>
+      )}
     </>
   );
 }

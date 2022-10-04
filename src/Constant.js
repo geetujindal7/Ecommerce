@@ -29,6 +29,6 @@ export const context = createContext(
       addItem: (item) => {},
       items: [],
       removeItem: (id) => {},
-      totalAmount: 0
+      totalAmount: 0,
     }
   );
